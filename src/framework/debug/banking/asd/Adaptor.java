@@ -3,10 +3,10 @@ package framework.debug.banking.asd;
 public class Adaptor implements Target {
 
 	private Provider provider = new LoggerFactory();
-	private Logger logger = provider.produce();
+	private Logging logger = provider.produce();
 	private Appender appender = new FileAppender();// default text file
 
-	private int loglevel = 1;// default is debug
+	private int logLevel = 1;// default is info
 
 	@Override
 	public void configLog(int loglevel, int appenderTo) {
@@ -17,25 +17,20 @@ public class Adaptor implements Target {
 			appender = new ConsoleAppender();
 			logger.setLoggerAppender(appender);
 		}
-		this.loglevel = loglevel;
+		this.logLevel = loglevel;
 	}
 
 	@Override
 	public void setLog(String message) {
-		// DEBUG = 1,INFO = 2,WARN = 3,ERROR = 4,FATAL = 5
-		if (loglevel == 1) {
-			logger.debug(message);
-		} else if (loglevel == 2) {
+		// INFO = 1,WARN = 2,ERROR = 3
+		if (logLevel == 1) {
 			logger.info(message);
 		}
-		if (loglevel == 3) {
+		if (logLevel == 2) {
 			logger.warn(message);
 		}
-		if (loglevel == 4) {
+		if (logLevel == 3) {
 			logger.error(message);
-		}
-		if (loglevel == 5) {
-			logger.fatal(message);
 		}
 	}
 

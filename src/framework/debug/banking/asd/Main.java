@@ -4,7 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 		//non adaptor pattern
 		Provider provider = new LoggerFactory();
-		Logger logger=provider.produce();
+		Logging logger=provider.produce();
 		//DEBUG = 1,INFO = 2,WARN = 3,ERROR = 4,FATAL = 5
 		logger.setLoggerLevel(4);
 		//ConsoleAppender:write to console,FileAppender write to file

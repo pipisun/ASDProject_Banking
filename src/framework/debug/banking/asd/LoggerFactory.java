@@ -3,8 +3,8 @@ package framework.debug.banking.asd;
 public class LoggerFactory implements Provider {
 
 	@Override
-	public Logger produce() {
-		return LoggerImpl.getInstance();
+	public Logging produce() {
+		return LoggingImpl.getInstance();
 	}
 
 }

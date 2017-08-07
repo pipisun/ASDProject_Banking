@@ -1,14 +1,14 @@
 package framework.debug.banking.asd;
 
-public interface Logger {
+public interface Logging {
 	
-	public void debug(String msg);
+//	public void debug(String msg);
 
 	public void info(String msg);
 
 	public void warn(String msg);
 
-	public void fatal(String msg);
+//	public void fatal(String msg);
 
 	public void error(String msg);
 	
