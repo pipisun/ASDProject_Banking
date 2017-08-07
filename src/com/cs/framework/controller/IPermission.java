@@ -7,11 +7,11 @@ import com.cs.framework.model.concrete.Users;
 
 public interface IPermission {
 	
-	public static List<Permission> getSystemPermissions(){
+	public default List<Permission> getSystemPermissions(){
 		return getSystemPermissionsImp();
 	}
-	
-	static List<Permission>  getSystemPermissionsImp() {
+
+	default List<Permission>  getSystemPermissionsImp() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -55,7 +55,8 @@ public class PermissionPanel extends JPanel {
 	
 	private void setAllPermissionList() {
 
-		allPermissionList = Constant.getSystemPermissions(); //get from db
+		allPermissionList = Constant.getStaticSystemPermissions(); //get from db
+
 		
 		if (allPermissionList.size() > 0) {
 			cbPermissionList = new JCheckBox[allPermissionList.size()];
