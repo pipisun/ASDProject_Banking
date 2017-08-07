@@ -10,7 +10,11 @@ public abstract class AddCutomerDialog extends javax.swing.JDialog {
 
 	public AddCutomerDialog(String custType) {
 		this.custType = custType;
-		setTitle("Add Customer");
+		if(this.custType.equalsIgnoreCase("P"))
+			setTitle("Add Individual Customer");
+		else
+			setTitle("Add Corporate Customer");
+		
 		setModal(true);
 		getContentPane().setLayout(null);
 		setSize(270, 300);

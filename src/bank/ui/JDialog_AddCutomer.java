@@ -28,14 +28,14 @@ public class JDialog_AddCutomer extends AddCutomerDialog {
 			pojoP.setState(JTextField_ST.getText());
 			if ("P".equalsIgnoreCase(custType)) {
 				pojoP.setBirthDate(GeneratorUtil.getDateFromString(JTextField_BD.getText()));
-				pojoP.setType("Person");
+				pojoP.setType("P");
 			} else {
 				if (ValidatorUtil.isNumeric(JTextField_NoOfEmp.getText())) {
 					pojoP.setNumberOfEmployees(Integer.parseInt(JTextField_NoOfEmp.getText()));
 				} else {
 					pojoP.setNumberOfEmployees(0);
 				}
-				pojoP.setType("Company");
+				pojoP.setType("C");
 			}
 			Command command = new CreatePartyCommand(PartyServiceImp.getInstance(), pojoP);
 			CommandManager manager = CommandManager.getInstance();

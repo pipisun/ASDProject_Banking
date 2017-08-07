@@ -122,18 +122,18 @@ public class BankMainWindow extends JFrame {
         /**
          * 1st menu
          */ 
-        item11= new JMenuItem("Add Company Customer"); 
-        item12= new JMenuItem("Add Person Customer");
-        item13= new JMenuItem("Show Customers List");      
+        item11= new JMenuItem("Add Corporate Customer"); 
+        item12= new JMenuItem("Add Individual Customer");
+        item13= new JMenuItem("View Customers Info");      
         
-        item21=new JMenuItem("Create An Account");
-        item22=new JMenuItem("Add Interest");
-        item23= new JMenuItem("Display Accounts List");
+        item21=new JMenuItem("Create Account");
+        item22=new JMenuItem("Adjust Interest");
+        item23= new JMenuItem("View Accounts Info");
         
         //system management menu items
-        item31=new JMenuItem("Display User");
-        item32=new JMenuItem("Add User");
-        item33=new JMenuItem("Manage Permission");
+        item31=new JMenuItem("View User");
+        item32=new JMenuItem("Maintain User");
+        item33=new JMenuItem("Manage Priviledge");
         item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_MASK));
         item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
         
