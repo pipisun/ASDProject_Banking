@@ -12,10 +12,10 @@ public class AccountFactory implements IAccountFactory {
 	public Account create(AccountDTO dto) {
 		Account account = null;
 		switch (dto.getType()) {
-		case "Ch":
+		case "Checking":
 			account = new Checking(dto.getAccountNumber(), 0, dto.getParty(),dto.getBalance());
 			break;
-		case "S":
+		case "Saving":
 			 account = new Saving(dto.getAccountNumber(), 0, dto.getParty(), dto.getBalance());
 			break;
 		}
