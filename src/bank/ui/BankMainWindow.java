@@ -208,10 +208,10 @@ public class BankMainWindow extends JFrame {
 //				panelmain.add(custPane);
 				//add log
 				//Adaptor pattern
-				//DEBUG = 1,INFO = 2,WARN = 3,ERROR = 4,FATAL = 5
+				//INFO = 1,WARN = 2,ERROR = 3
 				//appenderTo: 1-text file, 2- console
 				Target adaptor=new Adaptor();
-				adaptor.configLog(2, 1);
+				adaptor.configLog(1, 1);
 				adaptor.setLog("User display customers list");
 				
 			}else if(event.getSource()==item23){
@@ -221,7 +221,7 @@ public class BankMainWindow extends JFrame {
 //			    panelmain.add(accPane);
 				//add log
 				Target adaptor=new Adaptor();
-				adaptor.configLog(2, 1);
+				adaptor.configLog(1, 1);
 				adaptor.setLog("User display accounts list");
 			
 			}else if(event.getSource()== item31){
