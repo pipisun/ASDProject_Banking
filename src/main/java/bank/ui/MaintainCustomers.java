@@ -4,14 +4,19 @@ import main.java.cs525.mum.commands.Command;
 import main.java.cs525.mum.commands.CommandManager;
 import main.java.cs525.mum.commands.CreatePartyCommand;
 import main.java.cs525.mum.dto.PartyDTO;
-import main.java.cs525.mum.ui.AddCutomerDialog;
+import main.java.cs525.mum.ui.CustomerDialog;
 import main.java.cs525.mum.util.GeneratorUtil;
 import main.java.cs525.mum.util.ValidatorUtil;
 import main.java.bank.services.PartyServiceImp;
 
-public class JDialog_AddCutomer extends AddCutomerDialog {
+public class MaintainCustomers extends CustomerDialog {
 
-	public JDialog_AddCutomer(String custType) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public MaintainCustomers(String custType) {
 		super(custType);
 	}
 
