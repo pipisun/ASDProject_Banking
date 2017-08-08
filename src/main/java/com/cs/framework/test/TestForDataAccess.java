@@ -8,7 +8,7 @@ import main.java.com.cs.framework.controller.UserImp;
 import main.java.com.cs.framework.dao.DBAccess;
 import main.java.com.cs.framework.dao.UserDao;
 import main.java.com.cs.framework.model.concrete.Users;
-import main.java.com.cs.framework.util.DBUtil;
+import framework.util.DBUtil;
 
 public class TestForDataAccess {
 

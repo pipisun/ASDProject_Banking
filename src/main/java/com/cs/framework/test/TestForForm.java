@@ -15,7 +15,7 @@ import main.java.com.cs.framework.dao.PermissionDao;
 import main.java.com.cs.framework.model.concrete.Constant;
 import main.java.com.cs.framework.model.concrete.Permission;
 import main.java.com.cs.framework.model.concrete.Users;
-import main.java.com.cs.framework.util.DBUtil;
+import framework.util.DBUtil;
 
 import main.java.bank.ui.BankMainWindow;
 

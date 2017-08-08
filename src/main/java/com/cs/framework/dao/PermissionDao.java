@@ -7,7 +7,7 @@ import java.util.Map;
 import main.java.com.cs.framework.model.concrete.Permission;
 import main.java.com.cs.framework.model.concrete.UserPermission;
 import main.java.com.cs.framework.model.concrete.Users;
-import main.java.com.cs.framework.util.DBUtil;
+import framework.util.DBUtil;
 
 public class PermissionDao {
 	

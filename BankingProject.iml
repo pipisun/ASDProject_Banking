@@ -29,12 +29,12 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../asdFramwork/target" />
-          <root url="file://$MODULE_DIR$/../../asdFramwork/target" />
+          <root url="file://$MODULE_DIR$/../../framework/ASDProject_AnotherAPP/target" />
+          <root url="file://$MODULE_DIR$/../../framework/ASDProject_AnotherAPP/target" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/../../asdFramwork/target" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../framework/ASDProject_AnotherAPP/target" recursive="false" />
       </library>
     </orderEntry>
   </component>

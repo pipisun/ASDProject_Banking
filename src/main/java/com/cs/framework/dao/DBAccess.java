@@ -16,7 +16,7 @@ import java.util.Map;
 import com.mysql.jdbc.StringUtils;
 
 //import Model.Likes;
-import main.java.com.cs.framework.util.DBUtil;
+import framework.util.DBUtil;
 
 public class DBAccess<T> implements IDataAccess<T>{
 
