@@ -3,7 +3,7 @@ package main.java.cs525.mum.ui;
 import main.java.cs525.mum.dto.PartyDTO;
 import javax.swing.*;
 
-public abstract class CustomerDialog extends javax.swing.JDialog {
+public abstract class CustomerDialog extends JDialog {
 
 	/**
 	 * 
@@ -77,7 +77,7 @@ public abstract class CustomerDialog extends javax.swing.JDialog {
 		getContentPane().add(JTextField_ZIP);
 		JTextField_ZIP.setBounds(130, 117, 90, 20);
 		getContentPane().add(JTextField_EM);
-		JTextField_EM.setBounds(130, 141, 90, 20);
+		JTextField_EM.setBounds(130, 141, 120, 20);
 		JButton_OK.setText("OK");
 		JButton_OK.setActionCommand("OK");
 		getContentPane().add(JButton_OK);
