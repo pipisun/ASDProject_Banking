@@ -80,6 +80,7 @@ class Login extends JFrame implements ActionListener {
 
 	}
 
+	@SuppressWarnings("unused")
 	public void actionPerformed(ActionEvent ae) {
 		String value1 = text1.getText();
 		String value2 = text2.getText();
