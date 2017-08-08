@@ -12,8 +12,6 @@ import cs525.mum.util.ValidatorUtil;
 import com.cs.framework.controller.UserManagmentImp;
 import com.cs.framework.model.concrete.Users;
 
-import credit.services.PartyServiceImp;
-
 public class JDialog_AddUser extends AddUserDialog {
 
 	public JDialog_AddUser() {
