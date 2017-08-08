@@ -40,7 +40,7 @@ public class BankMainWindow extends JFrame {
     private static JPanel panelmain=new JPanel();
    
     private static JLabel lblBackgroundImage;    
-    static URL imgURL = Util.class.getClassLoader().getResource("images/IMG_430122.jpg");
+    static URL imgURL = Util.class.getClassLoader().getResource("main/java/images/IMG_430122.jpg");
     	
 	//set location x,y
 	Toolkit kit = Toolkit.getDefaultToolkit();   
