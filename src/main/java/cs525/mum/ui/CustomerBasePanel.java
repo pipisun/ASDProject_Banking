@@ -1,12 +1,13 @@
 package main.java.cs525.mum.ui;
 
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public abstract class CustomerBasePanel extends JPanel {
+public abstract class CustomerBasePanel extends JDialog {
 
 	protected DefaultTableModel model;
 	protected JTable JTable1;
@@ -14,8 +15,15 @@ public abstract class CustomerBasePanel extends JPanel {
 	protected Object rowdata[];
 
 	public CustomerBasePanel(String[] columns) {
-		setLayout(null);
-		this.setBounds(10, 50, 1000, 800);
+		setModal(true);
+		getContentPane().setLayout(null);
+		
+		String strClassName = this.getClass().getSimpleName();
+		if(strClassName.equals("CustomerPanel"))
+			this.setTitle("View Customers");
+		else
+			this.setTitle("View Users");
+		
 		JScrollPane1 = new JScrollPane();
 		model = new DefaultTableModel();
 		for (String col:columns) {

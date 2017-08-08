@@ -200,7 +200,8 @@ public class BankMainWindow extends JFrame {
 			} else if (event.getSource() == item13) {
 				revalidate();
 				CustomerPanel custPane = new CustomerPanel();
-				setContentPane(custPane);
+				custPane.setBounds(wx, wy, 950, 400);
+				custPane.show();
 				// panelmain.add(custPane);
 				// add log
 				// Adaptor pattern
@@ -224,7 +225,8 @@ public class BankMainWindow extends JFrame {
 				validate();
 				contentPane = getContentPane();
 				UserPanel userPane = new UserPanel();
-				contentPane.add(userPane, BorderLayout.SOUTH);
+				userPane.setBounds(wx, wy, 950, 400);
+				userPane.show();
 
 			} else if (event.getSource() == item33) {
 				validate();
