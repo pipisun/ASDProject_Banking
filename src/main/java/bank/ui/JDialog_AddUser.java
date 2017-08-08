@@ -1,0 +1,45 @@
+package main.java.bank.ui;
+
+import main.java.cs525.mum.commands.Command;
+import main.java.cs525.mum.commands.CommandManager;
+import main.java.cs525.mum.commands.CreatePartyCommand;
+import main.java.cs525.mum.dto.PartyDTO;
+import main.java.cs525.mum.ui.AddCutomerDialog;
+import main.java.cs525.mum.ui.AddUserDialog;
+import main.java.cs525.mum.util.GeneratorUtil;
+import main.java.cs525.mum.util.ValidatorUtil;
+
+import main.java.com.cs.framework.controller.UserManagmentImp;
+import main.java.com.cs.framework.model.concrete.Users;
+
+import main.java.credit.services.PartyServiceImp;
+
+public class JDialog_AddUser extends AddUserDialog {
+
+	public JDialog_AddUser() {
+		super();
+	}
+
+	@Override
+	public void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
+		try {
+			isAddNew = true;
+			user = new Users();
+			user.setFullname(JTextField_NAME.getText());
+			user.setCity(JTextField_CT.getText());
+			user.setEmail(JTextField_EM.getText());
+			user.setZipcode(Integer.parseInt(JTextField_ZIP.getText()));
+			user.setStreet(JTextField_STR.getText());
+			user.setState(JTextField_ST.getText());
+			user.setPassword(JTextField_PW.getText());
+			//user.setBirthyear(Integer.parseInt(JTextField_BD.getText()));
+			
+			UserManagmentImp.getInstance().addUser(user);
+			
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+
+		dispose();
+	}
+}
