@@ -1,12 +1,20 @@
 package main.java.bank.ui;
 
-import javax.swing.*;
-
+import com.sun.istack.internal.logging.Logger;
 import main.java.com.cs.framework.controller.UserImp;
 import main.java.com.cs.framework.model.concrete.Users;
+import org.jvnet.substance.SubstanceLookAndFeel;
+import org.jvnet.substance.skin.OfficeBlue2007Skin;
+import org.jvnet.substance.skin.SubstanceOfficeBlue2007LookAndFeel;
+import org.jvnet.substance.theme.SubstanceOliveTheme;
+import org.jvnet.substance.watermark.SubstanceImageWatermark;
 
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static javax.swing.UIManager.*;
 
 class Login extends JFrame implements ActionListener {
 	/**
@@ -94,8 +102,25 @@ class Login extends JFrame implements ActionListener {
 
 class LoginFrame {
 	public static void main(String arg[]) {
-		try {
-			Login frame = new Login();
+
+			try {
+				try {
+
+					UIManager.setLookAndFeel(new SubstanceLookAndFeel());
+
+					JFrame.setDefaultLookAndFeelDecorated(true);
+
+					JDialog.setDefaultLookAndFeelDecorated(true);
+
+					SubstanceLookAndFeel.setCurrentTheme(new SubstanceOliveTheme());
+
+
+
+				} catch (Exception e) {
+
+					System.err.println("Something went wrong!");
+				}
+					Login frame = new Login();
 			frame.setSize(800, 650);
 			frame.setVisible(true);
 			frame.setLocationRelativeTo(null);
