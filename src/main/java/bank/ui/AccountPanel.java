@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import framework.iterator.AbstractIterator;
+import framework.iterator.AbstractObjectList;
 import main.java.cs525.mum.commands.Command;
 import main.java.cs525.mum.commands.CommandManager;
 import main.java.cs525.mum.commands.ReportCommand;
 import main.java.cs525.mum.dto.AccountDTO;
+import main.java.bank.services.AccountList;
 import main.java.cs525.mum.dto.ReportDTO;
 import main.java.cs525.mum.ui.AccountBasePanel;
 import main.java.cs525.mum.ui.ReportDialog;
@@ -31,22 +34,27 @@ public class AccountPanel extends AccountBasePanel {
 			while (model.getRowCount() > 0) {
 				model.removeRow(0);
 			}
-			for (int i = 0; i < custList.size(); i++) {
-				AccountDTO obj = custList.get(i);
-				if (obj != null) {
-					rowdata[0] = obj.getAccountNumber();
-					rowdata[1] = obj.getParty().getName();
-					rowdata[2] = obj.getParty().getAddress().getCity();
-					if (obj.getParty() instanceof Person) {
-						rowdata[3] = "Person";
-					} else {
-						rowdata[3] = "Company";
-					}
-					rowdata[4] = obj.getType();
-					rowdata[5] = obj.getBalance();
-					rowdata[6] = obj.getInterest();
-					model.addRow(rowdata);
+			AbstractObjectList list;
+			AbstractIterator iterator;
+
+			list = new AccountList(custList);
+			iterator = list.createIterator();
+			while(!iterator.isLast()) {
+
+				AccountDTO obj = (AccountDTO)iterator.getNextItem();
+				rowdata[0] = obj.getAccountNumber();
+				rowdata[1] = obj.getParty().getName();
+				rowdata[2] = obj.getParty().getAddress().getCity();
+				if (obj.getParty() instanceof Person) {
+					rowdata[3] = "Person";
+				} else {
+					rowdata[3] = "Company";
 				}
+				rowdata[4] = obj.getType();
+				rowdata[5] = obj.getBalance();
+				rowdata[6] = obj.getInterest();
+				model.addRow(rowdata);
+				iterator.next();
 			}
 		}
 	}

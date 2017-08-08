@@ -11,7 +11,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/mysql-connector-java-5.1.40-bin.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../framework/ASDProject_AnotherAPP/target/asdFramwork-1.0-SNAPSHOT.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -29,12 +29,10 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../framework/ASDProject_AnotherAPP/target" />
-          <root url="file://$MODULE_DIR$/../../framework/ASDProject_AnotherAPP/target" />
+          <root url="jar://$MODULE_DIR$/lib/mysql-connector-java-5.1.40-bin.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/../../framework/ASDProject_AnotherAPP/target" recursive="false" />
       </library>
     </orderEntry>
   </component>
