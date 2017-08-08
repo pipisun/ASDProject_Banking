@@ -14,7 +14,7 @@ import main.java.bank.services.PartyServiceImp;
 
 public class UserPanel extends CustomerBasePanel {
 	private final static String[] columnNames = new String[] { "User Id", "Name", "Gender", "Email",
-			"Zip code" };
+			"ZIP Code" };
 
 	public UserPanel() {
 		super(columnNames);

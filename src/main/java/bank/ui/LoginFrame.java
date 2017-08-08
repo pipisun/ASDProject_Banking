@@ -1,12 +1,22 @@
 package main.java.bank.ui;
 
-import javax.swing.*;
-
+import com.sun.istack.internal.logging.Logger;
 import main.java.com.cs.framework.controller.UserImp;
 import main.java.com.cs.framework.model.concrete.Users;
+import org.jvnet.substance.SubstanceLookAndFeel;
+import org.jvnet.substance.skin.OfficeBlue2007Skin;
+import org.jvnet.substance.skin.SubstanceOfficeBlue2007LookAndFeel;
+import org.jvnet.substance.theme.SubstanceOliveTheme;
+import org.jvnet.substance.watermark.SubstanceImageWatermark;
+import util.framework.Adaptor;
+import util.framework.Target;
 
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static javax.swing.UIManager.*;
 
 class Login extends JFrame implements ActionListener {
 	/**
@@ -70,6 +80,7 @@ class Login extends JFrame implements ActionListener {
 
 	}
 
+	@SuppressWarnings("unused")
 	public void actionPerformed(ActionEvent ae) {
 		String value1 = text1.getText();
 		String value2 = text2.getText();
@@ -77,6 +88,10 @@ class Login extends JFrame implements ActionListener {
 		UserImp userImp = new UserImp();
 		Users user = (Users) userImp.login(value1, value2);
 		System.out.println(user.getFullname());
+		// use logging framework to record the login users.
+		Target adaptor=new Adaptor();
+		adaptor.configLog(1, 1);
+		adaptor.setLog("User:  " + user.getFullname() + "   Login.");
 
 		if (user != null) {
 			// if (value1.equals("test") && value2.equals("test")) {
@@ -94,8 +109,25 @@ class Login extends JFrame implements ActionListener {
 
 class LoginFrame {
 	public static void main(String arg[]) {
-		try {
-			Login frame = new Login();
+
+			try {
+				try {
+
+					UIManager.setLookAndFeel(new SubstanceLookAndFeel());
+
+					JFrame.setDefaultLookAndFeelDecorated(true);
+
+					JDialog.setDefaultLookAndFeelDecorated(true);
+
+					SubstanceLookAndFeel.setCurrentTheme(new SubstanceOliveTheme());
+
+
+
+				} catch (Exception e) {
+
+					System.err.println("Something went wrong!");
+				}
+					Login frame = new Login();
 			frame.setSize(800, 650);
 			frame.setVisible(true);
 			frame.setLocationRelativeTo(null);
