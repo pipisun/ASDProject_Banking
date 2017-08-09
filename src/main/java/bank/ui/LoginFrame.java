@@ -49,7 +49,7 @@ class Login extends JFrame implements ActionListener {
 		// sets background image of panel
 		// ImageIcon image = new ImageIcon("d:\\bg.jpg");
 
-		ImageIcon image = new ImageIcon(getClass().getResource("/main/java/images/loginBG.jpg"));
+		ImageIcon image = new ImageIcon(getClass().getResource("/main/java/images/loginBG.png"));
 		if (image != null) {
 			lblBackgroundImage.setIcon(image);
 			lblBackgroundImage.setText("");
