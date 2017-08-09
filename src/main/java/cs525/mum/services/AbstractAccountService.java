@@ -4,6 +4,11 @@ import main.java.cs525.mum.dal.AccountDAO;
 import main.java.cs525.mum.dto.AccountDTO;
 import main.java.cs525.mum.entities.Account;
 import main.java.cs525.mum.factories.IAccountFactory;
+import util.framework.AppenderLogs;
+import util.framework.FileAppender;
+import util.framework.LogItem;
+
+import java.util.Date;
 
 public abstract class AbstractAccountService implements AccountService {
 	protected AccountDAO accountDAO;
@@ -32,8 +37,10 @@ public abstract class AbstractAccountService implements AccountService {
 	public boolean deposit(String accountNumber, double amount) {
 		System.out.println("Framework Service Layer: AbstractAccountService: Inputs to deposit method " + "accountNumber ="
 				+ accountNumber + ", amount= " + amount);
-		if(accountDAO.depositToAccount(accountNumber, amount)) //do the deposite
+		if(accountDAO.depositToAccount(accountNumber, amount)) {
+			//do the deposite
 			return true;
+		}
 		return false;
 	}
 
@@ -41,7 +48,8 @@ public abstract class AbstractAccountService implements AccountService {
 	public boolean wihdraw(String accountNumber, double amount) {
 		System.out.println("Framework Service Layer: AbstractAccountService: Inputs to withdraw method " + "accountNumber ="
 				+ accountNumber + ", amount= " + amount);
-		if(accountDAO.wihdrawFromAccount(accountNumber, amount)) //do the withdraw
+		if(accountDAO.wihdrawFromAccount(accountNumber, amount))
+			//do the withdraw
 			return true;
 		return false;
 	}

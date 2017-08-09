@@ -8,8 +8,7 @@ import org.jvnet.substance.skin.OfficeBlue2007Skin;
 import org.jvnet.substance.skin.SubstanceOfficeBlue2007LookAndFeel;
 import org.jvnet.substance.theme.SubstanceOliveTheme;
 import org.jvnet.substance.watermark.SubstanceImageWatermark;
-import util.framework.Adaptor;
-import util.framework.Target;
+import util.framework.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -87,11 +86,14 @@ class Login extends JFrame implements ActionListener {
 
 		UserImp userImp = new UserImp();
 		Users user = (Users) userImp.login(value1, value2);
-		System.out.println(user.getFullname());
+
+
 		// use logging framework to record the login users.
 		Target adaptor=new Adaptor();
 		adaptor.configLog(1, 1);
 		adaptor.setLog("User:  " + user.getFullname() + "   Login.");
+		System.out.println(user.getFullname());
+
 
 		if (user != null) {
 			// if (value1.equals("test") && value2.equals("test")) {

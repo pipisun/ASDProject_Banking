@@ -1,7 +1,6 @@
 package main.java.cs525.mum.ui;
 
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import main.java.cs525.mum.dto.AccountDTO;
@@ -16,7 +15,6 @@ public abstract class AddAccountDialog extends javax.swing.JDialog {
 
 	protected AccountDTO pojoA;
 	protected boolean isAddNew = false;
-
 	public AddAccountDialog() {
 		JRadioButton_First.setSelected(true);
 		JRadioButton_Second.setSelected(false);

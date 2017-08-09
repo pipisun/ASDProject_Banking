@@ -202,24 +202,12 @@ public class BankMainWindow extends JFrame {
 				CustomerPanel custPane = new CustomerPanel();
 				custPane.setBounds(wx, wy, 950, 400);
 				custPane.show();
-				// panelmain.add(custPane);
-				// add log
-				// Adaptor pattern
-				// INFO = 1,WARN = 2,ERROR = 3
-				// appenderTo: 1-text file, 2- console
-				Target adaptor = new Adaptor();
-				adaptor.configLog(1, 1);
-				adaptor.setLog("User display customers list");
+
 
 			} else if (event.getSource() == item23) {
 				revalidate();
 				AccountPanel accPane = new AccountPanel();
 				setContentPane(accPane);
-				// panelmain.add(accPane);
-				// add log
-				Target adaptor = new Adaptor();
-				adaptor.configLog(1, 1);
-				adaptor.setLog("User display accounts list");
 
 			} else if (event.getSource() == item31) {
 				validate();
