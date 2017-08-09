@@ -85,13 +85,11 @@ class Login extends JFrame implements ActionListener {
 		UserImp userImp = new UserImp();
 		Users user = (Users) userImp.login(value1, value2);
 
-
 		// use logging framework to record the login users.
 		Target adaptor = new Adaptor();
 		adaptor.configLog(1, 1);
 		adaptor.setLog("User:  " + user.getFullname() + "   Login.");
 		System.out.println(user.getFullname());
-
 
 		if (user != null) {
 			// if (value1.equals("test") && value2.equals("test")) {
@@ -125,7 +123,7 @@ class LoginFrame {
 
 				System.err.println("Something went wrong!");
 			}
-			
+
 			Login frame = new Login();
 			frame.setSize(800, 650);
 			frame.setVisible(true);
