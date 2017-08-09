@@ -132,8 +132,9 @@ public class AccountPanel extends AccountBasePanel {
 			manager.setCommand(command);
 			manager.invokeCommand();
 			String tmpStr = ((ReportCommand) command).getReportResult();
-			ReportDialog re = new ReportDialog(tmpStr);
+			ReportDialog re = new ReportDialog(tmpStr, this);
 			re.setBounds(200, 50, 600, 400);
+			this.setVisible(false);
 			re.setVisible(true);
 		} else {
 			JOptionPane.showMessageDialog(this, "Please select an account to make the report!");

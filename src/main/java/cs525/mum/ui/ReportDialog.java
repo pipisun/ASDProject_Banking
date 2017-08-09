@@ -1,10 +1,15 @@
 package main.java.cs525.mum.ui;
 
+import main.java.bank.ui.AccountPanel;
+
 public class ReportDialog extends javax.swing.JDialog {
 	protected String reportString;
-
-	public ReportDialog(String reportStr) {
+	private AccountPanel acctPanel;
+	
+	public ReportDialog(String reportStr, AccountPanel acctPanel) {
 		this.reportString = reportStr;
+		this.acctPanel = acctPanel;
+		
 		getContentPane().setLayout(null);
 		setSize(600, 550);
 		setVisible(false);
@@ -33,6 +38,7 @@ public class ReportDialog extends javax.swing.JDialog {
 
 	protected void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
 		dispose();
+		acctPanel.setVisible(true);
 	}
 	
 	protected javax.swing.JScrollPane JScrollPane1 = new javax.swing.JScrollPane();
