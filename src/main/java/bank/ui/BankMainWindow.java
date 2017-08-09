@@ -115,7 +115,7 @@ public class BankMainWindow extends JFrame {
 		menu3 = new JMenu("Customer");
 		menu2 = new JMenu("Account");
 		menu1 = new JMenu("System"); // system management
-		menu4 = new JMenu("Help");
+//		menu4 = new JMenu("Help");
 
 		/**
 		 * 1st menu
@@ -131,12 +131,12 @@ public class BankMainWindow extends JFrame {
 		// system management menu items
 		item31 = new JMenuItem("View User");
 		item32 = new JMenuItem("Maintain User");
-		item33 = new JMenuItem("Manage Priviledge");
+		item33 = new JMenuItem("Manage Privilege");
 		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_MASK));
 		item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
 
-		item41 = new JMenuItem("Contents");
-		item42 = new JMenuItem("About...");
+//		item41 = new JMenuItem("Contents");
+//		item42 = new JMenuItem("About...");
 		item43 = new JMenuItem("Exit");
 
 		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
@@ -158,20 +158,22 @@ public class BankMainWindow extends JFrame {
 		menu1.add(item31);
 		menu1.add(item32);
 		menu1.add(item33);
-
-		item41.setAccelerator(KeyStroke.getKeyStroke("C"));
-		item43.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK));
-		item41.setEnabled(false);
-		item42.setEnabled(false);
-		menu4.add(item41);
-		menu4.add(item42);
-		menu4.addSeparator();
-		menu4.add(item43);
+		menu1.addSeparator();
+		menu1.add(item43);
+		
+//		item41.setAccelerator(KeyStroke.getKeyStroke("C"));
+//		item43.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK));
+//		item41.setEnabled(false);
+//		item42.setEnabled(false);
+//		menu4.add(item41);
+//		menu4.add(item42);
+//		menu4.addSeparator();
+//		menu4.add(item43);
 
 		menubar.add(menu1); // Add menu into menubar
 		menubar.add(menu2);
 		menubar.add(menu3);
-		menubar.add(menu4);
+//		menubar.add(menu4);
 		setJMenuBar(menubar); // Add one menubar
 	}
 
@@ -184,61 +186,57 @@ public class BankMainWindow extends JFrame {
 			} else if (event.getSource() == item11) {
 				MaintainCustomers pac = new MaintainCustomers("C");
 				pac.setBounds(wx, wy, 400, 300);
-				pac.show();
+				pac.setVisible(true);
+				pac.setResizable(false);
 			} else if (event.getSource() == item12) {
 				MaintainCustomers pac = new MaintainCustomers("P");
 				pac.setBounds(wx, wy, 400, 300);
-				pac.show();
+				pac.setVisible(true);
+				pac.setResizable(false);
 			} else if (event.getSource() == item21) {
 				JDialog_AddAccount pac = new JDialog_AddAccount();
 				pac.setBounds(wx, wy, 600, 400);
-				pac.show();
+				pac.setVisible(true);
+				pac.setResizable(false);
 			} else if (event.getSource() == item22) {
 				JDialog_AddInterest wd = new JDialog_AddInterest();
-				wd.setBounds(wx, wy, 300, 400);
-				wd.show();
+				wd.setBounds(wx, wy, 300, 160);
+				wd.setVisible(true);
+				wd.setResizable(false);
 			} else if (event.getSource() == item13) {
 				revalidate();
 				CustomerPanel custPane = new CustomerPanel();
-				custPane.setBounds(wx, wy, 950, 400);
-				custPane.show();
-				// panelmain.add(custPane);
-				// add log
-				// Adaptor pattern
-				// INFO = 1,WARN = 2,ERROR = 3
-				// appenderTo: 1-text file, 2- console
-				Target adaptor = new Adaptor();
-				adaptor.configLog(1, 1);
-				adaptor.setLog("User display customers list");
-
+				custPane.setBounds(wx - 100, wy, 950, 360);
+				custPane.setVisible(true);
+				custPane.setResizable(false);
 			} else if (event.getSource() == item23) {
 				revalidate();
 				AccountPanel accPane = new AccountPanel();
-				setContentPane(accPane);
-				// panelmain.add(accPane);
-				// add log
-				Target adaptor = new Adaptor();
-				adaptor.configLog(1, 1);
-				adaptor.setLog("User display accounts list");
+				accPane.setBounds(wx - 100, wy, 950, 400);
+				accPane.setVisible(true);
+				accPane.setResizable(false);
 
 			} else if (event.getSource() == item31) {
 				validate();
 				contentPane = getContentPane();
 				UserPanel userPane = new UserPanel();
-				userPane.setBounds(wx, wy, 950, 400);
-				userPane.show();
-
+				userPane.setBounds(wx, wy, 950, 360);
+				userPane.setVisible(true);
+				userPane.setResizable(false);
 			} else if (event.getSource() == item33) {
 				validate();
 				contentPane = getContentPane();
 				PermissionPanel permPanel = new PermissionPanel();
-				setContentPane(permPanel);
+				permPanel.setBounds(wx, wy - 100, 600, 550);
+				permPanel.setVisible(true);
+				permPanel.setResizable(false);
 				// contentPane.add(permPanel, BorderLayout.SOUTH);
 
 			} else if (event.getSource() == item32) {
 				JDialog_AddUser au = new JDialog_AddUser();
 				au.setBounds(wx, wy, 300, 400);
 				au.setVisible(true);
+				au.setResizable(false);
 			}
 		}
 	}

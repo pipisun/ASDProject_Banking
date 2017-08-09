@@ -8,8 +8,7 @@ import org.jvnet.substance.skin.OfficeBlue2007Skin;
 import org.jvnet.substance.skin.SubstanceOfficeBlue2007LookAndFeel;
 import org.jvnet.substance.theme.SubstanceOliveTheme;
 import org.jvnet.substance.watermark.SubstanceImageWatermark;
-import util.framework.Adaptor;
-import util.framework.Target;
+import util.framework.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +22,7 @@ class Login extends JFrame implements ActionListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	JButton SUBMIT;
 	JPanel panel;
 	JLabel label1, label2, lblBackgroundImage;
@@ -48,11 +47,9 @@ class Login extends JFrame implements ActionListener {
 		lblBackgroundImage = new JLabel();
 		lblBackgroundImage.setLayout(new FlowLayout());
 		// sets background image of panel
-		//ImageIcon image = new ImageIcon("d:\\bg.jpg");
+		// ImageIcon image = new ImageIcon("d:\\bg.jpg");
 
-		ImageIcon image = new ImageIcon(
-		  getClass().getResource(
-		  "/main/java/images/loginBG.jpg"));
+		ImageIcon image = new ImageIcon(getClass().getResource("/main/java/images/loginBG.jpg"));
 		if (image != null) {
 			lblBackgroundImage.setIcon(image);
 			lblBackgroundImage.setText("");
@@ -70,7 +67,7 @@ class Login extends JFrame implements ActionListener {
 
 		add(panel, BorderLayout.CENTER);
 		SUBMIT.addActionListener(this);
-		setTitle("LOGIN FORM");
+		setTitle("Login");
 		// setLocationRelativeTo(null);
 
 		// Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -87,11 +84,14 @@ class Login extends JFrame implements ActionListener {
 
 		UserImp userImp = new UserImp();
 		Users user = (Users) userImp.login(value1, value2);
-		System.out.println(user.getFullname());
+
+
 		// use logging framework to record the login users.
-		Target adaptor=new Adaptor();
+		Target adaptor = new Adaptor();
 		adaptor.configLog(1, 1);
 		adaptor.setLog("User:  " + user.getFullname() + "   Login.");
+		System.out.println(user.getFullname());
+
 
 		if (user != null) {
 			// if (value1.equals("test") && value2.equals("test")) {
@@ -101,7 +101,7 @@ class Login extends JFrame implements ActionListener {
 			// page.getContentPane().add(label);
 			this.setVisible(false);
 		} else {
-			System.out.println("enter the valid username and password");
+			System.out.println("Enter the valid username and password");
 			JOptionPane.showMessageDialog(this, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
@@ -110,24 +110,23 @@ class Login extends JFrame implements ActionListener {
 class LoginFrame {
 	public static void main(String arg[]) {
 
+		try {
 			try {
-				try {
 
-					UIManager.setLookAndFeel(new SubstanceLookAndFeel());
+				UIManager.setLookAndFeel(new SubstanceLookAndFeel());
 
-					JFrame.setDefaultLookAndFeelDecorated(true);
+				JFrame.setDefaultLookAndFeelDecorated(true);
 
-					JDialog.setDefaultLookAndFeelDecorated(true);
+				JDialog.setDefaultLookAndFeelDecorated(true);
 
-					SubstanceLookAndFeel.setCurrentTheme(new SubstanceOliveTheme());
+				SubstanceLookAndFeel.setCurrentTheme(new SubstanceOliveTheme());
 
+			} catch (Exception e) {
 
-
-				} catch (Exception e) {
-
-					System.err.println("Something went wrong!");
-				}
-					Login frame = new Login();
+				System.err.println("Something went wrong!");
+			}
+			
+			Login frame = new Login();
 			frame.setSize(800, 650);
 			frame.setVisible(true);
 			frame.setLocationRelativeTo(null);

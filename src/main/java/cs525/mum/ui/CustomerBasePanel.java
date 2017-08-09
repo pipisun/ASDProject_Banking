@@ -1,5 +1,9 @@
 package main.java.cs525.mum.ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -7,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public abstract class CustomerBasePanel extends JDialog {
+public abstract class CustomerBasePanel extends JDialog implements ActionListener {
 
 	protected DefaultTableModel model;
 	protected JTable JTable1;
@@ -41,8 +45,18 @@ public abstract class CustomerBasePanel extends JDialog {
 
 	
 		displayCustomerList();
+		
+		JButton closeButton = new JButton();
+		closeButton.setBounds(400, 240, 100, 24);
+		closeButton.setText("Close");
+		this.add(closeButton);
+		closeButton.addActionListener(this);
 	}
 	
+	public void actionPerformed(ActionEvent e) {
+		this.dispose();
+		
+	}
     protected javax.swing.JButton JButton_PersonCustomer = new javax.swing.JButton();
     protected javax.swing.JButton JButton_CompanyCustomer = new javax.swing.JButton();
 	

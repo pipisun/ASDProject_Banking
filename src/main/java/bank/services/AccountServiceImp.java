@@ -1,6 +1,7 @@
 package main.java.bank.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,6 +15,9 @@ import main.java.bank.entities.Company;
 import main.java.bank.entities.Person;
 import main.java.bank.factories.AccountFactory;
 import main.java.bank.util.DTOConverterUtil;
+import util.framework.AppenderLogs;
+import util.framework.FileAppender;
+import util.framework.LogItem;
 
 //Service classes are singletones
 public class AccountServiceImp extends AbstractAccountService {
@@ -36,7 +40,13 @@ public class AccountServiceImp extends AbstractAccountService {
 		System.out.println("Service Layer: AccountService: Inputs to deposit method " + "accountNumber ="
 				+ accountNumber + ", amount= " + amount);
 		super.deposit(accountNumber, amount);
-		sendEmailNotification(accountNumber, amount);		
+		sendEmailNotification(accountNumber, amount);
+		FileAppender fileAppender = new FileAppender();
+		AppenderLogs appenderLogs = new AppenderLogs();
+		appenderLogs.setAppenderStrategy(fileAppender);
+		String message = "Deposite Operation: Account:" + accountNumber + "   deposite amount :" + amount ;
+		LogItem logItem = new LogItem(1,message,new Date());
+		appenderLogs.appender(logItem);
 		return true;
 	}
 
@@ -45,6 +55,13 @@ public class AccountServiceImp extends AbstractAccountService {
 		System.out.println("Service Layer: AccountService: Inputs to withdraw method " + "accountNumber ="
 				+ accountNumber + ", amount= " + amount);
 		accountDAO.wihdrawFromAccount(accountNumber, amount); // do the deposite
+		//recorder the withdraw operation in log file.
+		FileAppender fileAppender2 = new FileAppender();
+		AppenderLogs appenderLogs2 = new AppenderLogs();
+		appenderLogs2.setAppenderStrategy(fileAppender2);
+		String message = "Withdraw Operation: Account:" + accountNumber + "   withdraw amount :" + amount ;
+		LogItem logItem = new LogItem(1,message,new Date());
+		appenderLogs2.appender(logItem);
 		sendEmailNotification(accountNumber, amount);		
 		return true;// suppose withdraw done
 	}
