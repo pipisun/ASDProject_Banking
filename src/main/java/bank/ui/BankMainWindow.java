@@ -92,7 +92,7 @@ public class BankMainWindow extends JFrame implements WindowListener {
 		item43.addActionListener(handler);
 //		item41.setName("BankMainWindow.Menu4.Item41");
 //		item42.setName("BankMainWindow.Menu4.Item42");
-//		item43.setName("BankMainWindow.Menu4.Item43");
+		item43.setName("BankMainWindow.Menu4.Item43");
 
 	}
 
@@ -134,24 +134,24 @@ public class BankMainWindow extends JFrame implements WindowListener {
 		item31 = new JMenuItem("View User");
 		item32 = new JMenuItem("Maintain User");
 		item33 = new JMenuItem("Manage Privilege");
-		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_MASK));
-		item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
+//		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_MASK));
+//		item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
 
 //		item41 = new JMenuItem("Contents");
 //		item42 = new JMenuItem("About...");
 		item43 = new JMenuItem("Exit");
 
-		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
-		item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_MASK));
-		item13.setAccelerator(KeyStroke.getKeyStroke("S"));
+//		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
+//		item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_MASK));
+//		item13.setAccelerator(KeyStroke.getKeyStroke("S"));
 		menu3.add(item11);
 		menu3.add(item12);
 		menu3.addSeparator();
 		menu3.add(item13);
 
-		item21.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
-		item22.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_MASK));
-		item23.setAccelerator(KeyStroke.getKeyStroke("D"));
+//		item21.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
+//		item22.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_MASK));
+//		item23.setAccelerator(KeyStroke.getKeyStroke("D"));
 		menu2.add(item21);
 		menu2.add(item22);
 		menu2.addSeparator();
