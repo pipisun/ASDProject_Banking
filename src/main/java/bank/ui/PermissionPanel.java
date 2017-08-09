@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -25,7 +26,7 @@ import main.java.com.cs.framework.model.concrete.Permission;
 import main.java.com.cs.framework.model.concrete.Users;
 
 
-public class PermissionPanel extends JPanel {
+public class PermissionPanel extends JDialog {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -45,7 +46,7 @@ public class PermissionPanel extends JPanel {
 
 
 	public PermissionPanel() {		
-		ini_compoments();	//ini the user table
+		init_components();	//init the user table
 		displayUserList();
 		setAllPermissionList();
 		setUserPermissionList();
@@ -135,9 +136,10 @@ public class PermissionPanel extends JPanel {
 		}
 	}
 
-	private void ini_compoments(){
+	private void init_components(){
+		setTitle("Manage Privilege");
 		setLayout(null);
-		this.setBounds(0, 25, 1000, 800);
+		this.setBounds(0, 100, 1000, 800);
 		JScrPanUserList = new JScrollPane();
 
 		jPanelPermissionList = new JPanel();
