@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config>
+    <className>main.java.bank.services.ComputeAnnualFee</className>
+</config>

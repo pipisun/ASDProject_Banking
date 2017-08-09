@@ -10,6 +10,7 @@ import framework.visitor.Compute;
 import main.java.bank.domain.CheckingAccount;
 import main.java.bank.domain.SavingAccount;
 import main.java.bank.services.ComputeAnnualFee;
+import main.java.bank.util.XMLUtil;
 import main.java.cs525.mum.commands.Command;
 import main.java.cs525.mum.commands.CommandManager;
 import main.java.cs525.mum.commands.ReportCommand;
@@ -52,7 +53,9 @@ public class AccountPanel extends AccountBasePanel {
 				} else {
 					obj = new CheckingAccount(obj);
 				}
-				obj.accept(new ComputeAnnualFee());
+				Compute dep;
+				dep = (Compute) XMLUtil.getBean();
+				obj.accept(dep);//new ComputeAnnualFee());
 				rowdata[0] = obj.getAccountNumber();
 				rowdata[1] = obj.getParty().getName();
 				rowdata[2] = obj.getParty().getAddress().getCity();
