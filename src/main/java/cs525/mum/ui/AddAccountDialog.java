@@ -5,7 +5,21 @@ import javax.swing.table.DefaultTableModel;
 
 import main.java.cs525.mum.dto.AccountDTO;
 
-public abstract class AddAccountDialog extends javax.swing.JDialog {
+public abstract class AddAccountDialog extends JDialog {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected JLabel JLabel1 = new JLabel();
+	protected JLabel JLabel2 = new JLabel();
+	protected JTextField JTextField_BALANCE = new JTextField();
+	protected JButton JButton_OK = new JButton();
+	protected JButton JButton_Cancel = new JButton();
+	protected JRadioButton JRadioButton_First = new JRadioButton();
+	protected JRadioButton JRadioButton_Second = new JRadioButton();
+	protected ButtonGroup JRadioButton_Group = new ButtonGroup();
 
 	protected DefaultTableModel model;
 	protected JTable JTable1;
@@ -15,10 +29,14 @@ public abstract class AddAccountDialog extends javax.swing.JDialog {
 
 	protected AccountDTO pojoA;
 	protected boolean isAddNew = false;
+
 	public AddAccountDialog() {
+
+		JRadioButton_Group.add(JRadioButton_First);
+		JRadioButton_Group.add(JRadioButton_Second);
 		JRadioButton_First.setSelected(true);
 		JRadioButton_Second.setSelected(false);
-		JRadioButton_Third.setSelected(false);
+		// JRadioButton_Third.setSelected(false);
 		accType = "G";
 		setTitle("Add Account");
 		setModal(true);
@@ -30,16 +48,16 @@ public abstract class AddAccountDialog extends javax.swing.JDialog {
 		JRadioButton_First.setActionCommand("Gold");
 		this.add(JRadioButton_First);
 		JRadioButton_First.setBounds(40, 0, 120, 24);
-		
+
 		JRadioButton_Second.setText("Silver");
 		JRadioButton_Second.setActionCommand("Silver");
 		this.add(JRadioButton_Second);
-		JRadioButton_Second.setBounds(160, 0, 120, 24);
-		
-		JRadioButton_Third.setText("Bronze");
-		JRadioButton_Third.setActionCommand("Bronze");
-		this.add(JRadioButton_Third);
-		JRadioButton_Third.setBounds(240, 0, 120, 24);
+		JRadioButton_Second.setBounds(180, 0, 120, 24);
+
+		// JRadioButton_Third.setText("Bronze");
+		// JRadioButton_Third.setActionCommand("Bronze");
+		// this.add(JRadioButton_Third);
+		// JRadioButton_Third.setBounds(240, 0, 120, 24);
 
 		JLabel1.setText("Balance");
 		this.add(JLabel1);
@@ -58,7 +76,7 @@ public abstract class AddAccountDialog extends javax.swing.JDialog {
 		model.addColumn("Customer No");
 		model.addColumn("Name");
 		model.addColumn("City");
-		model.addColumn("Person/Company");
+		model.addColumn("Account Type");
 		model.addColumn("Email");
 		model.addColumn("DOB");
 		model.addColumn("Employee No");
@@ -84,12 +102,12 @@ public abstract class AddAccountDialog extends javax.swing.JDialog {
 		SymMouse aSymMouse = new SymMouse();
 		JRadioButton_First.addMouseListener(aSymMouse);
 		JRadioButton_Second.addMouseListener(aSymMouse);
-		JRadioButton_Third.addMouseListener(aSymMouse);
-		
+		// JRadioButton_Third.addMouseListener(aSymMouse);
+
 		SymAction lSymAction = new SymAction();
 		JButton_OK.addActionListener(lSymAction);
 		JButton_Cancel.addActionListener(lSymAction);
-		
+
 		initial();
 	}
 
@@ -100,8 +118,8 @@ public abstract class AddAccountDialog extends javax.swing.JDialog {
 				JRadioButtonFirst_mouseClicked(event);
 			else if (object == JRadioButton_Second)
 				JRadioButtonSecond_mouseClicked(event);
-			else if (object == JRadioButton_Third)
-				JRadioButtonThird_mouseClicked(event);
+			// else if (object == JRadioButton_Third)
+			// JRadioButtonThird_mouseClicked(event);
 		}
 	}
 
@@ -117,17 +135,23 @@ public abstract class AddAccountDialog extends javax.swing.JDialog {
 			}
 		}
 	}
+
 	public abstract void initial();
+
 	public abstract void displayCustomerList();
+
 	public abstract void JButtonOK_actionPerformed(java.awt.event.ActionEvent event);
+
 	public abstract void JRadioButtonFirst_mouseClicked(java.awt.event.MouseEvent event);
+
 	public abstract void JRadioButtonSecond_mouseClicked(java.awt.event.MouseEvent event);
+
 	public abstract void JRadioButtonThird_mouseClicked(java.awt.event.MouseEvent event);
-	
+
 	final void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event) {
 		dispose();
 	}
-	
+
 	public AccountDTO getPojoAccount() {
 		return pojoA;
 	}
@@ -135,13 +159,4 @@ public abstract class AddAccountDialog extends javax.swing.JDialog {
 	public boolean isAddNew() {
 		return isAddNew;
 	}
-	
-	protected javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
-	protected javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
-	protected javax.swing.JTextField JTextField_BALANCE = new javax.swing.JTextField();
-	protected javax.swing.JButton JButton_OK = new javax.swing.JButton();
-	protected javax.swing.JButton JButton_Cancel = new javax.swing.JButton();
-	protected javax.swing.JRadioButton JRadioButton_First = new javax.swing.JRadioButton();
-	protected javax.swing.JRadioButton JRadioButton_Second = new javax.swing.JRadioButton();
-	protected javax.swing.JRadioButton JRadioButton_Third = new javax.swing.JRadioButton();
 }

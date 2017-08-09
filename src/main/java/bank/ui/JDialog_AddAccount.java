@@ -21,6 +21,11 @@ import main.java.bank.services.PartyServiceImp;
 
 public class JDialog_AddAccount extends AddAccountDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public JDialog_AddAccount() {
 		super();
 	}
@@ -76,7 +81,7 @@ public class JDialog_AddAccount extends AddAccountDialog {
 		setTitle("Add Account");
 		JRadioButton_First.setText("Checking");
 		JRadioButton_Second.setText("Saving");
-		JRadioButton_Third.setVisible(false);
+//		JRadioButton_Third.setVisible(false);
 		JRadioButton_First.setSelected(true);
 		JRadioButton_Second.setSelected(false);
 		accType = "Checking";

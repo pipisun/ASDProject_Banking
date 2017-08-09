@@ -11,7 +11,23 @@ import java.awt.*;
 
 @SuppressWarnings("serial")
 public abstract class AccountBasePanel extends JDialog {
-
+	
+	public abstract void setButtonNames();
+	public abstract void displayAccountList();
+	public abstract void JButtonExit_actionPerformed(java.awt.event.ActionEvent event);
+	public abstract void JButtonAddAcc_actionPerformed(java.awt.event.ActionEvent event);
+	public abstract void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event);
+	public abstract void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event);
+	public abstract void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event);
+	public abstract void JButtonReport_actionPerformed(java.awt.event.ActionEvent event);
+	
+	protected javax.swing.JButton JButton_AddAcc = new javax.swing.JButton();
+	protected javax.swing.JButton JButton_Deposit = new javax.swing.JButton();
+	protected javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
+	protected javax.swing.JButton JButton_Addinterest = new javax.swing.JButton();
+	protected javax.swing.JButton JButton_Report = new javax.swing.JButton();
+	protected javax.swing.JButton JButton_Exit = new javax.swing.JButton();
+	
 	boolean isAddNewAccount;
 	protected DefaultTableModel model;
 	protected JTable JTable1;
@@ -79,20 +95,4 @@ public abstract class AccountBasePanel extends JDialog {
 				JButtonReport_actionPerformed(event);
 		}
 	}
-	
-	public abstract void setButtonNames();
-	public abstract void displayAccountList();
-	public abstract void JButtonExit_actionPerformed(java.awt.event.ActionEvent event);
-	public abstract void JButtonAddAcc_actionPerformed(java.awt.event.ActionEvent event);
-	public abstract void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event);
-	public abstract void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event);
-	public abstract void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event);
-	public abstract void JButtonReport_actionPerformed(java.awt.event.ActionEvent event);
-	
-	protected javax.swing.JButton JButton_AddAcc = new javax.swing.JButton();
-	protected javax.swing.JButton JButton_Deposit = new javax.swing.JButton();
-	protected javax.swing.JButton JButton_Withdraw = new javax.swing.JButton();
-	protected javax.swing.JButton JButton_Addinterest = new javax.swing.JButton();
-	protected javax.swing.JButton JButton_Report = new javax.swing.JButton();
-	protected javax.swing.JButton JButton_Exit = new javax.swing.JButton();
 }
