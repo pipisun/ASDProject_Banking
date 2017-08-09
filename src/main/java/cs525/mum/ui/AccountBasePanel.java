@@ -3,7 +3,10 @@ package main.java.cs525.mum.ui;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import java.awt.*;
 
 @SuppressWarnings("serial")
 public abstract class AccountBasePanel extends JPanel {
@@ -21,6 +24,7 @@ public abstract class AccountBasePanel extends JPanel {
 		JScrollPane1 = new JScrollPane();
 		model = new DefaultTableModel();
 		JTable1 = new JTable(model);
+
 		for (String col:columns) {
 			model.addColumn(col);
 		}
@@ -28,9 +32,11 @@ public abstract class AccountBasePanel extends JPanel {
 		isAddNewAccount = false;
 
 		this.add(JScrollPane1);
-		JScrollPane1.setBounds(5, 10, 750, 300);
+		JScrollPane1.setBounds(5, 100, 750, 300);
 		JScrollPane1.getViewport().add(JTable1);
-		JTable1.setBounds(5, 10, 750, 300);
+		JTable1.setBounds(5, 100, 750, 300);
+
+		JTable1.setRowHeight(50);
 		JScrollPane1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		
