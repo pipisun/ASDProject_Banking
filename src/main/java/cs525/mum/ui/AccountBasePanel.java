@@ -1,12 +1,13 @@
 package main.java.cs525.mum.ui;
 
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public abstract class AccountBasePanel extends JPanel {
+public abstract class AccountBasePanel extends JDialog {
 
 	boolean isAddNewAccount;
 	protected DefaultTableModel model;
@@ -15,6 +16,8 @@ public abstract class AccountBasePanel extends JPanel {
 	protected Object rowdata[];
 
 	public AccountBasePanel(String[]columns) {
+		this.setModal(true);
+		this.setTitle("Manage Account");
 		this.setLayout(null);
 		this.setBounds(10, 50, 900, 600);
 

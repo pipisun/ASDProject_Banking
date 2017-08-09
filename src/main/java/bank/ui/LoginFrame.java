@@ -101,7 +101,7 @@ class Login extends JFrame implements ActionListener {
 			// page.getContentPane().add(label);
 			this.setVisible(false);
 		} else {
-			System.out.println("enter the valid username and password");
+			System.out.println("Enter the valid username and password");
 			JOptionPane.showMessageDialog(this, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}

@@ -16,12 +16,12 @@ public class JDialog_AddInterest extends javax.swing.JDialog {
 
 
 	public JDialog_AddInterest() {
-		setTitle("Add Interest");
+		setTitle("Adjust Interest");
 		setModal(true);
 		getContentPane().setLayout(null);
 		setSize(300, 150);
 		setVisible(false);
-		JLabel1.setText("Add Interest To All Accounts:");
+		JLabel1.setText("Adjust Interest To All Accounts:");
 		getContentPane().add(JLabel1);
 		JLabel1.setForeground(java.awt.Color.black);
 		JLabel1.setBounds(12, 12, 300, 24);
@@ -36,7 +36,7 @@ public class JDialog_AddInterest extends javax.swing.JDialog {
 		JButton_Cancel.setText("Cancel");
 		JButton_Cancel.setActionCommand("Cancel");
 		getContentPane().add(JButton_Cancel);
-		JButton_Cancel.setBounds(156, 84, 120, 24);
+		JButton_Cancel.setBounds(156, 84, 84, 24);
 		getContentPane().add(JTextField_Interest);
 		JTextField_Interest.setBounds(84, 48, 144, 24);
 
