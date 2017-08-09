@@ -21,7 +21,7 @@ import framework.util.DBUtil;
 public class DBAccess<T> implements IDataAccess<T>{
 
 	private static  String dbDriver = "com.mysql.jdbc.Driver";
-	private static  String dburl = "jdbc:mysql://localhost:3307/bank";
+	private static  String dburl = "jdbc:mysql://localhost:3306/bank";
 	private static  String DBNAME_STRING = "root";
 	private static  String DBNAME_P_STRING = "qwerty"; // P is changed
 	private static Connection connection = null;
