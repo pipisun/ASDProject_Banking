@@ -68,7 +68,7 @@ public class AccountPanel extends AccountBasePanel {
 	public void JButtonAddAcc_actionPerformed(java.awt.event.ActionEvent event) {
 		JDialog_AddAccount pac = new JDialog_AddAccount();
 		pac.setBounds(450, 20, 500, 600);
-		pac.show();
+		pac.setVisible(true);
 		if (pac.isAddNew()) {
 			displayAccountList();
 			JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
@@ -82,7 +82,7 @@ public class AccountPanel extends AccountBasePanel {
 			String accnr = (String) model.getValueAt(selection, 0);
 			JDialog_Deposit dep = new JDialog_Deposit(accnr);
 			dep.setBounds(930, 15, 375, 200);
-			dep.show();
+			dep.setVisible(true);
 			if (dep.isNewDeposit()) {
 				displayAccountList();
 				JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
@@ -101,7 +101,7 @@ public class AccountPanel extends AccountBasePanel {
 			Double currAmount = (Double) model.getValueAt(selection, 5);
 			JDialog_Withdraw wd = new JDialog_Withdraw(accnr, currAmount);
 			wd.setBounds(430, 15, 375, 200);
-			wd.show();
+			wd.setVisible(true);
 			if (wd.isNewWithdraw()) {
 				displayAccountList();
 				JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
@@ -115,7 +115,7 @@ public class AccountPanel extends AccountBasePanel {
 	public void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
 		JDialog_AddInterest wd = new JDialog_AddInterest();
 		wd.setBounds(300, 25, 375, 200);
-		wd.show();
+		wd.setVisible(true);
 		displayAccountList();
 	}
 
@@ -134,7 +134,7 @@ public class AccountPanel extends AccountBasePanel {
 			String tmpStr = ((ReportCommand) command).getReportResult();
 			ReportDialog re = new ReportDialog(tmpStr);
 			re.setBounds(200, 50, 600, 400);
-			re.show();
+			re.setVisible(true);
 		} else {
 			JOptionPane.showMessageDialog(this, "Please select an account to make the report!");
 		}
