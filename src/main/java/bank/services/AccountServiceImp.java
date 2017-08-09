@@ -17,6 +17,7 @@ import main.java.bank.factories.AccountFactory;
 import main.java.bank.util.DTOConverterUtil;
 import util.framework.AppenderLogs;
 import util.framework.FileAppender;
+import util.framework.FileAppenderSecurityProxy;
 import util.framework.LogItem;
 
 //Service classes are singletones
@@ -41,9 +42,10 @@ public class AccountServiceImp extends AbstractAccountService {
 				+ accountNumber + ", amount= " + amount);
 		super.deposit(accountNumber, amount);
 		sendEmailNotification(accountNumber, amount);
-		FileAppender fileAppender = new FileAppender();
+		//FileAppender fileAppender = new FileAppender();
+		FileAppenderSecurityProxy fileAppenderSecurityProxy = new FileAppenderSecurityProxy();
 		AppenderLogs appenderLogs = new AppenderLogs();
-		appenderLogs.setAppenderStrategy(fileAppender);
+		appenderLogs.setAppenderStrategy(fileAppenderSecurityProxy);
 		String message = "Deposite Operation: Account:" + accountNumber + "   deposite amount :" + amount ;
 		LogItem logItem = new LogItem(1,message,new Date());
 		appenderLogs.appender(logItem);
@@ -56,9 +58,10 @@ public class AccountServiceImp extends AbstractAccountService {
 				+ accountNumber + ", amount= " + amount);
 		accountDAO.wihdrawFromAccount(accountNumber, amount); // do the deposite
 		//recorder the withdraw operation in log file.
-		FileAppender fileAppender2 = new FileAppender();
+		//FileAppender fileAppender2 = new FileAppender();
+		FileAppenderSecurityProxy fileAppenderSecurityProxy = new FileAppenderSecurityProxy();
 		AppenderLogs appenderLogs2 = new AppenderLogs();
-		appenderLogs2.setAppenderStrategy(fileAppender2);
+		appenderLogs2.setAppenderStrategy(fileAppenderSecurityProxy);
 		String message = "Withdraw Operation: Account:" + accountNumber + "   withdraw amount :" + amount ;
 		LogItem logItem = new LogItem(1,message,new Date());
 		appenderLogs2.appender(logItem);
