@@ -7,8 +7,8 @@ import main.java.cs525.mum.ui.CustomerBasePanel;
 import main.java.bank.services.PartyServiceImp;
 
 public class CustomerPanel extends CustomerBasePanel {
-	private final static String[] columnNames = new String[] { "Customer No", "Customer Name", "City", "Person/Company", "Email",
-			"DOB", "Employee No" };
+	private final static String[] columnNames = new String[] { "Customer No", "Customer Name", "City", "Customer Type", "Email",
+			"DOB", "Number of Employee" };
 
 	public CustomerPanel() {
 		super(columnNames);

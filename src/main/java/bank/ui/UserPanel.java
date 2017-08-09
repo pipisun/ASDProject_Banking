@@ -32,7 +32,14 @@ public class UserPanel extends CustomerBasePanel {
 				if (user != null) {
 					rowdata[0] = user.getUserid();
 					rowdata[1] = user.getFullname();
-					rowdata[2] = user.getGender();
+					
+					String strGender = "";
+					if(user.getGender() == 0)
+						strGender = "Female";
+					else
+						strGender = "Male";
+					rowdata[2] = strGender;
+					
 					rowdata[3] = user.getEmail();
 					rowdata[4] = user.getZipcode();
 					//rowdata[5] = user.get != null ? user.getBirthDate().toString() : "";

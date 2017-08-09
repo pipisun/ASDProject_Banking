@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -27,12 +29,12 @@ import com.mysql.jdbc.Util;
 import util.framework.Adaptor;
 import util.framework.Target;
 
-public class BankMainWindow extends JFrame {
+public class BankMainWindow extends JFrame implements WindowListener {
 	private static final long serialVersionUID = 1L;
 
 	private JMenuBar menubar;
-	private JMenu menu1, menu2, menu3, menu4;
-	private JMenuItem item11, item12, item13, item21, item22, item23, item31, item32, item33, item41, item42, item43;
+	private JMenu menu1, menu2, menu3;
+	private JMenuItem item11, item12, item13, item21, item22, item23, item31, item32, item33, item43;
 
 	private Container contentPane;
 	private static JPanel panelmain = new JPanel();
@@ -60,7 +62,7 @@ public class BankMainWindow extends JFrame {
 		// add(lblBackgroundImage,BorderLayout.WEST);
 		// setContentPane(panelmain);
 		setVisible(true);
-		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		theHandler handler = new theHandler();
@@ -85,11 +87,11 @@ public class BankMainWindow extends JFrame {
 		item32.setName("BankMainWindow.Menu3.Item32");
 		item33.setName("BankMainWindow.Menu3.Item33");
 
-		item41.addActionListener(handler);
-		item42.addActionListener(handler);
+//		item41.addActionListener(handler);
+//		item42.addActionListener(handler);
 		item43.addActionListener(handler);
-		item41.setName("BankMainWindow.Menu4.Item41");
-		item42.setName("BankMainWindow.Menu4.Item42");
+//		item41.setName("BankMainWindow.Menu4.Item41");
+//		item42.setName("BankMainWindow.Menu4.Item42");
 		item43.setName("BankMainWindow.Menu4.Item43");
 
 	}
@@ -132,24 +134,24 @@ public class BankMainWindow extends JFrame {
 		item31 = new JMenuItem("View User");
 		item32 = new JMenuItem("Maintain User");
 		item33 = new JMenuItem("Manage Privilege");
-		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_MASK));
-		item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
+//		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_MASK));
+//		item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
 
 //		item41 = new JMenuItem("Contents");
 //		item42 = new JMenuItem("About...");
 		item43 = new JMenuItem("Exit");
 
-		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
-		item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_MASK));
-		item13.setAccelerator(KeyStroke.getKeyStroke("S"));
+//		item11.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
+//		item12.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_MASK));
+//		item13.setAccelerator(KeyStroke.getKeyStroke("S"));
 		menu3.add(item11);
 		menu3.add(item12);
 		menu3.addSeparator();
 		menu3.add(item13);
 
-		item21.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
-		item22.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_MASK));
-		item23.setAccelerator(KeyStroke.getKeyStroke("D"));
+//		item21.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
+//		item22.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_MASK));
+//		item23.setAccelerator(KeyStroke.getKeyStroke("D"));
 		menu2.add(item21);
 		menu2.add(item22);
 		menu2.addSeparator();
@@ -272,5 +274,45 @@ public class BankMainWindow extends JFrame {
 
 	void JButtonExit_actionPerformed(java.awt.event.ActionEvent event) {
 		System.exit(0);
+	}
+	
+	@Override
+	public void windowClosed(WindowEvent e){
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

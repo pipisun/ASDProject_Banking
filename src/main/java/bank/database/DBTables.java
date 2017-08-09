@@ -38,13 +38,13 @@ public class DBTables {
 		Party c4 = new Company("Volkswagen", new Address("NA","Southland","CA","89745"),"volkswagen@volkswagen.com",16000);
 		c4.setId("1000004");
 		
-		Party p1 = new Person("Bo Liu",new Address("405 E Street 1","Chicago","IL","56899"),"poliu@gmail.com", LocalDate.of(1996, 2, 27));
+		Party p1 = new Person("Songtao Sun",new Address("405 E Street 1","Chicago","IL","42568"),"songtaosun@gmail.com", LocalDate.of(1996, 2, 12));
 		p1.setId("2000001");
-		Party p2 = new Person("Ming Li",new Address("158 W Avenue","Miami","FL","56899"),"mingli@gmail.com", LocalDate.of(1983, 10, 14));
+		Party p2 = new Person("Yangyang Li",new Address("158 W Avenue","Miami","FL","31500"),"yangyangli@gmail.com", LocalDate.of(1983, 10, 14));
 		p2.setId("2000002");
-		Party p3 = new Person("Lin Chen",new Address("791 E Ttee","Sillicon Valley","NA","56899"),"linchen@gmail.com", LocalDate.of(1993, 2, 27));
+		Party p3 = new Person("Yifeng Zhong",new Address("791 E Ttee","Sillicon Valley","NA","26899"),"yifengzhong@gmail.com", LocalDate.of(1993, 2, 27));
 		p3.setId("3000001");
-		Party p4 = new Person("James Zuckerber",new Address("31450 Trer 8","Northland","NA","56899"),"james@gmail.com", LocalDate.of(1999, 2, 27));
+		Party p4 = new Person("Yang Yu",new Address("31450 Trer 8","Northland","NA","51000"),"yangyu@gmail.com", LocalDate.of(1999, 1, 27));
 		p4.setId("4000004");
 		
 		Party_TABLE.add(c1);
