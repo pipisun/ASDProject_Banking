@@ -1,5 +1,7 @@
 package main.java.cs525.mum.entities;
 
+import framework.state.AccountState;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +12,14 @@ public abstract class Account {
 	private Party party;//Account owned only by one party
 	private double balance;
 	private List<Transaction> transactions;
+	private AccountState state;
 	
 	public Account(){
 		
 	}
-	
+	public void setState(AccountState state) {
+		this.state = state;
+	}
 	public Account(String accountNumber, double interest, Party party, double balance) {
 		super();
 		this.accountNumber = accountNumber;
@@ -78,5 +83,11 @@ public abstract class Account {
 				String.format("%15s|",this.getClass().getSimpleName())+
 				String.format("%15s|\n", this.balance);
 	}
+	public void deposit(double amount) {
+		state.deposit(amount);
+	}
 
+	public boolean withdraw(double amount) {
+		return state.withdraw(amount);
+	}
 }

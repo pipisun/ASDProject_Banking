@@ -38,7 +38,7 @@ public abstract class AccountBasePanel extends JDialog {
 		this.setModal(true);
 		this.setTitle("Manage Account");
 		this.setLayout(null);
-		this.setBounds(10, 50, 900, 600);
+		this.setBounds(10, 50, 1200, 900);
 
 		JScrollPane1 = new JScrollPane();
 		model = new DefaultTableModel();
@@ -51,9 +51,9 @@ public abstract class AccountBasePanel extends JDialog {
 		isAddNewAccount = false;
 
 		this.add(JScrollPane1);
-		JScrollPane1.setBounds(5, 100, 750, 300);
+		JScrollPane1.setBounds(5, 5, 1150, 300);
 		JScrollPane1.getViewport().add(JTable1);
-		JTable1.setBounds(5, 100, 750, 300);
+		JTable1.setBounds(5, 5, 1150, 300);
 
 		JTable1.setRowHeight(50);
 		JScrollPane1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -61,15 +61,15 @@ public abstract class AccountBasePanel extends JDialog {
 		
 		this.add(JButton_Deposit);
 		JButton_Deposit.setText("Deposit");
-		JButton_Deposit.setBounds(770, 50, 120, 33);
+		JButton_Deposit.setBounds(1170, 50, 180, 66);
 		
 		this.add(JButton_Withdraw);
 		JButton_Withdraw.setText("Withdraw");
-		JButton_Withdraw.setBounds(770, 100, 120, 33);
+		JButton_Withdraw.setBounds(1170, 150, 180, 66);
 
 		this.add(JButton_Report);
 		JButton_Report.setText("Report");
-		JButton_Report.setBounds(770, 150, 120, 33);
+		JButton_Report.setBounds(1170, 250, 180, 66);
 
 
 		SymAction lSymAction = new SymAction();
