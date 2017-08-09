@@ -14,10 +14,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import static javax.swing.UIManager.*;
 
-class Login extends JFrame implements ActionListener {
+class Login extends JFrame implements ActionListener, WindowListener {
 	/**
 	 * 
 	 */
@@ -68,6 +70,7 @@ class Login extends JFrame implements ActionListener {
 		add(panel, BorderLayout.CENTER);
 		SUBMIT.addActionListener(this);
 		setTitle("Login");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		// setLocationRelativeTo(null);
 
 		// Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -77,7 +80,6 @@ class Login extends JFrame implements ActionListener {
 
 	}
 
-	@SuppressWarnings("unused")
 	public void actionPerformed(ActionEvent ae) {
 		String value1 = text1.getText();
 		String value2 = text2.getText();
@@ -97,11 +99,53 @@ class Login extends JFrame implements ActionListener {
 			// page.setVisible(true);
 			// JLabel label = new JLabel("Welcome:"+value1);
 			// page.getContentPane().add(label);
-			this.setVisible(false);
+			page.setVisible(true);
+			this.dispose();
 		} else {
 			System.out.println("Enter the valid username and password");
 			JOptionPane.showMessageDialog(this, "Incorrect login or password", "Error", JOptionPane.ERROR_MESSAGE);
 		}
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

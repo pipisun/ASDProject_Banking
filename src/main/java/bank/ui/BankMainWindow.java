@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -27,12 +29,12 @@ import com.mysql.jdbc.Util;
 import util.framework.Adaptor;
 import util.framework.Target;
 
-public class BankMainWindow extends JFrame {
+public class BankMainWindow extends JFrame implements WindowListener {
 	private static final long serialVersionUID = 1L;
 
 	private JMenuBar menubar;
-	private JMenu menu1, menu2, menu3, menu4;
-	private JMenuItem item11, item12, item13, item21, item22, item23, item31, item32, item33, item41, item42, item43;
+	private JMenu menu1, menu2, menu3;
+	private JMenuItem item11, item12, item13, item21, item22, item23, item31, item32, item33, item43;
 
 	private Container contentPane;
 	private static JPanel panelmain = new JPanel();
@@ -60,7 +62,7 @@ public class BankMainWindow extends JFrame {
 		// add(lblBackgroundImage,BorderLayout.WEST);
 		// setContentPane(panelmain);
 		setVisible(true);
-		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		theHandler handler = new theHandler();
@@ -85,12 +87,12 @@ public class BankMainWindow extends JFrame {
 		item32.setName("BankMainWindow.Menu3.Item32");
 		item33.setName("BankMainWindow.Menu3.Item33");
 
-		item41.addActionListener(handler);
-		item42.addActionListener(handler);
+//		item41.addActionListener(handler);
+//		item42.addActionListener(handler);
 		item43.addActionListener(handler);
-		item41.setName("BankMainWindow.Menu4.Item41");
-		item42.setName("BankMainWindow.Menu4.Item42");
-		item43.setName("BankMainWindow.Menu4.Item43");
+//		item41.setName("BankMainWindow.Menu4.Item41");
+//		item42.setName("BankMainWindow.Menu4.Item42");
+//		item43.setName("BankMainWindow.Menu4.Item43");
 
 	}
 
@@ -272,5 +274,45 @@ public class BankMainWindow extends JFrame {
 
 	void JButtonExit_actionPerformed(java.awt.event.ActionEvent event) {
 		System.exit(0);
+	}
+	
+	@Override
+	public void windowClosed(WindowEvent e){
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
