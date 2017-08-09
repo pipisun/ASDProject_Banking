@@ -1,5 +1,7 @@
 package main.java.bank.util;
 
+import main.java.bank.domain.CheckingAccount;
+import main.java.bank.domain.SavingAccount;
 import main.java.cs525.mum.dto.AccountDTO;
 import main.java.cs525.mum.dto.PartyDTO;
 import main.java.cs525.mum.entities.Account;
@@ -33,7 +35,12 @@ public class DTOConverterUtil {
 	}
 
 	public static AccountDTO getPojoFromAccount(Account acc) {
-		AccountDTO pp = new AccountDTO();
+		AccountDTO pp = null;
+		if (acc instanceof Checking) {
+			pp = new CheckingAccount();
+		} else {
+			pp = new SavingAccount();
+		}
 		pp.setAccountNumber(acc.getAccountNumber());
 		pp.setBalance(acc.getBalance());
 		pp.setInterest(acc.getInterest());

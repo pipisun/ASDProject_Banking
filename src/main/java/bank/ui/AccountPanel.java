@@ -6,6 +6,10 @@ import javax.swing.JOptionPane;
 
 import framework.iterator.AbstractIterator;
 import framework.iterator.AbstractObjectList;
+import framework.visitor.Compute;
+import main.java.bank.domain.CheckingAccount;
+import main.java.bank.domain.SavingAccount;
+import main.java.bank.services.ComputeAnnualFee;
 import main.java.cs525.mum.commands.Command;
 import main.java.cs525.mum.commands.CommandManager;
 import main.java.cs525.mum.commands.ReportCommand;
@@ -30,6 +34,7 @@ public class AccountPanel extends AccountBasePanel {
 	@Override
 	public void displayAccountList() {
 		List<AccountDTO> custList = AccountServiceImp.getInstance().getAllAccounts();
+
 		if (custList != null && model != null) {
 			while (model.getRowCount() > 0) {
 				model.removeRow(0);
@@ -42,6 +47,12 @@ public class AccountPanel extends AccountBasePanel {
 			while(!iterator.isLast()) {
 
 				AccountDTO obj = (AccountDTO)iterator.getNextItem();
+				if (obj.getType() == "Saving") {
+					obj = new SavingAccount(obj);
+				} else {
+					obj = new CheckingAccount(obj);
+				}
+				obj.accept(new ComputeAnnualFee());
 				rowdata[0] = obj.getAccountNumber();
 				rowdata[1] = obj.getParty().getName();
 				rowdata[2] = obj.getParty().getAddress().getCity();

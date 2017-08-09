@@ -2,18 +2,31 @@ package main.java.cs525.mum.dto;
 
 import framework.iterator.AbstractIterator;
 import framework.iterator.AbstractObjectList;
+import framework.visitor.Elements;
+import main.java.cs525.mum.entities.Account;
 import main.java.cs525.mum.entities.Party;
 
 import java.util.List;
 
-public class AccountDTO implements IDTO {
+public abstract class AccountDTO implements IDTO,Elements {
 	private String accountNumber;//account number
 	private double interest;
 	private double balance;
 	private double interestRate;
 	private String type;
 	private Party party;
-	
+
+	public AccountDTO() {
+	}
+	public AccountDTO(AccountDTO dto) {
+		this.accountNumber = dto.getAccountNumber();
+		this.type = dto.getType();
+		this.interestRate = dto.getInterestRate();
+		this.interest = dto.getInterest();
+		this.party = dto.getParty();
+		this.balance = dto.getBalance();
+	}
+
 	public String getAccountNumber() {
 		return accountNumber;
 	}

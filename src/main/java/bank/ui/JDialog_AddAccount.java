@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import main.java.bank.domain.CheckingAccount;
+import main.java.bank.domain.SavingAccount;
 import main.java.cs525.mum.commands.Command;
 import main.java.cs525.mum.commands.CommandManager;
 import main.java.cs525.mum.commands.CreateAccountCommand;
@@ -37,7 +39,13 @@ public class JDialog_AddAccount extends AddAccountDialog {
 			}
 
 			isAddNew = true;
-			AccountDTO pojoA = new AccountDTO();
+			AccountDTO pojoA = null;
+			if(accType == "Saving") {
+				pojoA = new SavingAccount();
+			} else {
+				pojoA = new CheckingAccount();
+			}
+
 			if (ValidatorUtil.isNumeric(JTextField_BALANCE.getText())) {
 				pojoA.setBalance(Integer.parseInt(JTextField_BALANCE.getText()));
 			} else {
