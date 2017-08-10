@@ -26,7 +26,6 @@ public class JDialog_Withdraw extends WithdrawDialog {
 			return;
 		}
 		double deposit = Double.parseDouble(JTextField_AMT.getText());
-		Command command = new WithdrawComand(AccountServiceImp.getInstance(), accnr, deposit);
 
 		Account account = new AccountDAOImp().find(accnr);
 		if (account.getBalance() > -2000 && account.getBalance() <= 0) {
@@ -38,18 +37,11 @@ public class JDialog_Withdraw extends WithdrawDialog {
 		else {
 			account.setState(new NormalState(account));
 		}
-		if (!account.withdraw(deposit)) {
+		if (!account.withdraw(deposit, accnr)) {
 			super.JLabelAlert.show();
 			return;
 		}
-		CommandManager manager = CommandManager.getInstance();
-		manager.setCommand(command);
 
-		try {
-			manager.invokeCommand();
-		} catch (RuntimeException e) {
-			e.printStackTrace();
-		}
 		dispose();
 	}
 

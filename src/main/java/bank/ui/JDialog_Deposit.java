@@ -25,9 +25,7 @@ public class JDialog_Deposit extends DepositDialog {
 			dispose();
 			return;
 		}
-		Command command = new DepositComand(AccountServiceImp.getInstance(), accnr, Double.parseDouble(JTextField_Deposit.getText()));
-		CommandManager manager = CommandManager.getInstance();
-		manager.setCommand(command);
+		double deposit = Double.parseDouble(JTextField_Deposit.getText());
 		Account account = new AccountDAOImp().find(accnr);
 		if (account.getBalance() > -2000 && account.getBalance() <= 0) {
 			account.setState(new OverdraftState(account));
@@ -38,12 +36,8 @@ public class JDialog_Deposit extends DepositDialog {
 		else {
 			account.setState(new NormalState(account));
 		}
-		account.deposit(Double.parseDouble(JTextField_Deposit.getText()));
-		try {
-			manager.invokeCommand();
-		} catch (RuntimeException e) {
-			e.printStackTrace();
-		}
+		account.deposit(deposit, accnr);
+
 		dispose();
 	}
 

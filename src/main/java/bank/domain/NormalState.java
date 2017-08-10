@@ -2,6 +2,11 @@ package main.java.bank.domain;
 
 import framework.state.AccountState;
 
+import main.java.bank.services.AccountServiceImp;
+import main.java.cs525.mum.commands.Command;
+import main.java.cs525.mum.commands.CommandManager;
+import main.java.cs525.mum.commands.DepositComand;
+import main.java.cs525.mum.commands.WithdrawComand;
 import main.java.cs525.mum.entities.Account;
 
 /**
@@ -15,16 +20,32 @@ public class NormalState implements AccountState {
     }
 
     @Override
-    public void deposit(double v) {
-        dto.setBalance(dto.getBalance() + v);
-        stateCheck(v);
+    public void deposit(double v, String accnr) {
+        Command command = new DepositComand(AccountServiceImp.getInstance(), accnr, v);
+        CommandManager manager = CommandManager.getInstance();
+        manager.setCommand(command);
+        try {
+            manager.invokeCommand();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+        stateCheck(dto.getBalance() + v);
     }
 
     @Override
-    public boolean withdraw(double v) {
+    public boolean withdraw(double v,String accnr) {
 
         //dto.setBalance(dto.getBalance() - v);
         stateCheck(dto.getBalance() - v);
+        Command command = new WithdrawComand(AccountServiceImp.getInstance(), accnr, v);
+        CommandManager manager = CommandManager.getInstance();
+        manager.setCommand(command);
+
+        try {
+            manager.invokeCommand();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 

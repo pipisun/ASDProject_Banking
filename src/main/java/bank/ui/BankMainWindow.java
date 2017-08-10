@@ -214,7 +214,7 @@ public class BankMainWindow extends JFrame implements WindowListener {
 			} else if (event.getSource() == item23) {
 				revalidate();
 				AccountPanel accPane = new AccountPanel();
-				accPane.setBounds(wx - 100, wy, 950, 400);
+//				accPane.setBounds(wx - 100, wy, 950, 400);
 				accPane.setVisible(true);
 				accPane.setResizable(false);
 

@@ -1,6 +1,10 @@
 package main.java.bank.domain;
 
 import framework.state.AccountState;
+import main.java.bank.services.AccountServiceImp;
+import main.java.cs525.mum.commands.Command;
+import main.java.cs525.mum.commands.CommandManager;
+import main.java.cs525.mum.commands.DepositComand;
 import main.java.cs525.mum.dto.AccountDTO;
 import main.java.cs525.mum.entities.Account;
 
@@ -16,13 +20,20 @@ public class RestrictedState implements AccountState {
     }
 
     @Override
-    public void deposit(double v) {
-        //dto.setBalance(dto.getBalance() + v);
+    public void deposit(double v, String accnr) {
+        Command command = new DepositComand(AccountServiceImp.getInstance(), accnr, v);
+        CommandManager manager = CommandManager.getInstance();
+        manager.setCommand(command);
+        try {
+            manager.invokeCommand();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
         stateCheck(dto.getBalance() + v);
     }
 
     @Override
-    public boolean withdraw(double v) {
+    public boolean withdraw(double v, String accnr) {
         System.out.println("Account is restricted");
         stateCheck(dto.getBalance());
         return false;

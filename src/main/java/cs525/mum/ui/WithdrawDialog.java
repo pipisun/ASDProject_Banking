@@ -36,7 +36,7 @@ public abstract class WithdrawDialog extends javax.swing.JDialog {
 		getContentPane().add(JButton_Cancel);
 		JButton_Cancel.setBounds(276, 154, 200, 60);
 		JLabelAlert.setForeground(java.awt.Color.red);
-		JLabelAlert.setBounds(48, 300, 500, 50);
+		JLabelAlert.setBounds(48, 220, 500, 50);
 		JLabelAlert.setText("WithDraw is restricted");
 		JLabelAlert.hide();
 		getContentPane().add(JLabelAlert);

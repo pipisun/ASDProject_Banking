@@ -1,9 +1,8 @@
 package main.java.cs525.mum.ui;
 
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -16,10 +15,12 @@ public abstract class AccountBasePanel extends JDialog {
 	public abstract void displayAccountList();
 	public abstract void JButtonExit_actionPerformed(java.awt.event.ActionEvent event);
 	public abstract void JButtonAddAcc_actionPerformed(java.awt.event.ActionEvent event);
-	public abstract void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event);
-	public abstract void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event);
+	public abstract void JButtonDeposit_actionPerformed(MenuEvent e);
+	public abstract void JButtonWithdraw_actionPerformed(MenuEvent e);
 	public abstract void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event);
-	public abstract void JButtonReport_actionPerformed(java.awt.event.ActionEvent event);
+	public abstract void JButtonReport_actionPerformed(MenuEvent e);
+	private JMenuBar menubar;
+	private JMenu menu1, menu2, menu3;
 	
 	protected javax.swing.JButton JButton_AddAcc = new javax.swing.JButton();
 	protected javax.swing.JButton JButton_Deposit = new javax.swing.JButton();
@@ -33,12 +34,72 @@ public abstract class AccountBasePanel extends JDialog {
 	protected JTable JTable1;
 	protected JScrollPane JScrollPane1;
 	protected Object rowdata[];
+	void init() {
+		menubar = new JMenuBar();
+		// menu columns
+		menu3 = new JMenu("Deposit");
+		menu3.addMenuListener(new MenuListener() {
+			@Override
+			public void menuSelected(MenuEvent e) {
+				JButtonDeposit_actionPerformed(e);
+			}
 
+			@Override
+			public void menuDeselected(MenuEvent e) {
+
+			}
+
+			@Override
+			public void menuCanceled(MenuEvent e) {
+
+			}
+		});
+		menu2 = new JMenu("Withdraw");
+		menu2.addMenuListener(new MenuListener() {
+			@Override
+			public void menuSelected(MenuEvent e) {
+				JButtonWithdraw_actionPerformed(e);
+			}
+
+			@Override
+			public void menuDeselected(MenuEvent e) {
+
+			}
+
+			@Override
+			public void menuCanceled(MenuEvent e) {
+
+			}
+		});
+		menu1 = new JMenu("Report"); // system management
+		menu1.addMenuListener(new MenuListener() {
+			@Override
+			public void menuSelected(MenuEvent e) {
+				JButtonReport_actionPerformed(e);
+			}
+
+			@Override
+			public void menuDeselected(MenuEvent e) {
+
+			}
+
+			@Override
+			public void menuCanceled(MenuEvent e) {
+
+			}
+		});
+		menubar.add(menu1); // Add menu into menubar
+		menubar.add(menu2);
+		menubar.add(menu3);
+		setJMenuBar(menubar); // Add one menubar
+	}
 	public AccountBasePanel(String[]columns) {
+		init();
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setModal(true);
-		this.setTitle("Manage Account");
+		this.setTitle("Account Information");
 		this.setLayout(null);
-		this.setBounds(10, 50, 1200, 900);
+		this.setSize(screenSize);
 
 		JScrollPane1 = new JScrollPane();
 		model = new DefaultTableModel();
@@ -51,48 +112,16 @@ public abstract class AccountBasePanel extends JDialog {
 		isAddNewAccount = false;
 
 		this.add(JScrollPane1);
-		JScrollPane1.setBounds(5, 5, 1150, 300);
+		JScrollPane1.setSize(screenSize);
 		JScrollPane1.getViewport().add(JTable1);
 		JTable1.setBounds(5, 5, 1150, 300);
 
 		JTable1.setRowHeight(50);
 		JScrollPane1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		
-		this.add(JButton_Deposit);
-		JButton_Deposit.setText("Deposit");
-		JButton_Deposit.setBounds(1170, 50, 180, 66);
-		
-		this.add(JButton_Withdraw);
-		JButton_Withdraw.setText("Withdraw");
-		JButton_Withdraw.setBounds(1170, 150, 180, 66);
-
-		this.add(JButton_Report);
-		JButton_Report.setText("Report");
-		JButton_Report.setBounds(1170, 250, 180, 66);
 
 
-		SymAction lSymAction = new SymAction();
-		JButton_AddAcc.addActionListener(lSymAction);
-		JButton_Addinterest.addActionListener(lSymAction);
-		JButton_Deposit.addActionListener(lSymAction);
-		JButton_Withdraw.addActionListener(lSymAction);
-		JButton_Report.addActionListener(lSymAction);
-		JButton_Exit.addActionListener(lSymAction);
-		
 		displayAccountList();
 		setButtonNames();
-	}
-
-	class SymAction implements java.awt.event.ActionListener {
-		public void actionPerformed(java.awt.event.ActionEvent event) {
-			Object object = event.getSource();
-			if (object == JButton_Deposit)
-				JButtonDeposit_actionPerformed(event);
-			else if (object == JButton_Withdraw)
-				JButtonWithdraw_actionPerformed(event);
-			else if (object == JButton_Report)
-				JButtonReport_actionPerformed(event);
-		}
 	}
 }

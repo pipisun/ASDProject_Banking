@@ -3,6 +3,7 @@ package main.java.bank.ui;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.event.MenuEvent;
 
 import framework.iterator.AbstractIterator;
 import framework.iterator.AbstractObjectList;
@@ -90,7 +91,7 @@ public class AccountPanel extends AccountBasePanel {
 	}
 
 	@Override
-	public void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
+	public void JButtonDeposit_actionPerformed(MenuEvent e) {
 		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
 		if (selection >= 0) {
 			String accnr = (String) model.getValueAt(selection, 0);
@@ -107,7 +108,7 @@ public class AccountPanel extends AccountBasePanel {
 	}
 
 	@Override
-	public void JButtonWithdraw_actionPerformed(java.awt.event.ActionEvent event) {
+	public void JButtonWithdraw_actionPerformed(MenuEvent e) {
 		// get selected name
 		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
 		if (selection >= 0) {
@@ -134,7 +135,7 @@ public class AccountPanel extends AccountBasePanel {
 	}
 
 	@Override
-	public void JButtonReport_actionPerformed(java.awt.event.ActionEvent event) {
+	public void JButtonReport_actionPerformed(MenuEvent e) {
 		int selection = JTable1.getSelectionModel().getMinSelectionIndex();
 		if (selection >= 0) {
 			String accnr = (String) model.getValueAt(selection, 0);

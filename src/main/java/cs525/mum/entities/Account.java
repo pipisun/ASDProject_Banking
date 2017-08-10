@@ -1,6 +1,7 @@
 package main.java.cs525.mum.entities;
 
 import framework.state.AccountState;
+import main.java.cs525.mum.commands.Command;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,11 +84,11 @@ public abstract class Account {
 				String.format("%15s|",this.getClass().getSimpleName())+
 				String.format("%15s|\n", this.balance);
 	}
-	public void deposit(double amount) {
-		state.deposit(amount);
+	public void deposit(double amount,String accnr) {
+		state.deposit(amount, accnr);
 	}
 
-	public boolean withdraw(double amount) {
-		return state.withdraw(amount);
+	public boolean withdraw(double amount, String accnr) {
+		return state.withdraw(amount, accnr);
 	}
 }
