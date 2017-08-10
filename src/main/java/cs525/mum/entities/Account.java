@@ -1,8 +1,6 @@
 package main.java.cs525.mum.entities;
 
 import framework.state.AccountState;
-import main.java.cs525.mum.commands.Command;
-
 import java.util.ArrayList;
 import java.util.List;
 
