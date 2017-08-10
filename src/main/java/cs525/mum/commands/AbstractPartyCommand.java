@@ -1,5 +1,6 @@
 package main.java.cs525.mum.commands;
 
+import framework.command.Command;
 import main.java.cs525.mum.services.AbstractPartyService;
 
 public abstract class AbstractPartyCommand  implements Command {

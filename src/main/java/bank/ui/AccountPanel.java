@@ -5,15 +5,14 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.MenuEvent;
 
+import framework.command.Command;
+import framework.command.CommandManager;
 import framework.iterator.AbstractIterator;
 import framework.iterator.AbstractObjectList;
 import framework.visitor.Compute;
 import main.java.bank.domain.CheckingAccount;
 import main.java.bank.domain.SavingAccount;
-import main.java.bank.services.ComputeAnnualFee;
 import main.java.bank.util.XMLUtil;
-import main.java.cs525.mum.commands.Command;
-import main.java.cs525.mum.commands.CommandManager;
 import main.java.cs525.mum.commands.ReportCommand;
 import main.java.cs525.mum.dto.AccountDTO;
 import main.java.bank.services.AccountList;

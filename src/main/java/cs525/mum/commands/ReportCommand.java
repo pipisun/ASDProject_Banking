@@ -1,5 +1,6 @@
 package main.java.cs525.mum.commands;
 
+import framework.command.Command;
 import main.java.cs525.mum.dto.ReportDTO;
 import main.java.cs525.mum.services.ReportService;
 

@@ -1,10 +1,11 @@
 package main.java.bank.domain;
 
+import framework.command.Command;
+import framework.command.CommandManager;
 import framework.state.AccountState;
 
 import main.java.bank.services.AccountServiceImp;
-import main.java.cs525.mum.commands.Command;
-import main.java.cs525.mum.commands.CommandManager;
+
 import main.java.cs525.mum.commands.DepositComand;
 import main.java.cs525.mum.commands.WithdrawComand;
 import main.java.cs525.mum.entities.Account;

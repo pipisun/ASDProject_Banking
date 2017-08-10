@@ -1,8 +1,8 @@
 package main.java.bank.ui;
 
+import framework.command.Command;
+import framework.command.CommandManager;
 import main.java.cs525.mum.commands.AddInterestCommand;
-import main.java.cs525.mum.commands.Command;
-import main.java.cs525.mum.commands.CommandManager;
 import main.java.cs525.mum.util.ValidatorUtil;
 import main.java.bank.services.AccountServiceImp;
 
