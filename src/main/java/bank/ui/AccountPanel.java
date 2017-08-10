@@ -114,7 +114,7 @@ public class AccountPanel extends AccountBasePanel {
 			String accnr = (String) model.getValueAt(selection, 0);
 			Double currAmount = (Double) model.getValueAt(selection, 5);
 			JDialog_Withdraw wd = new JDialog_Withdraw(accnr, currAmount);
-			wd.setBounds(430, 15, 375, 200);
+			wd.setBounds(430, 15, 900, 500);
 			wd.setVisible(true);
 			if (wd.isNewWithdraw()) {
 				displayAccountList();

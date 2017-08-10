@@ -123,5 +123,9 @@ public abstract class AccountBasePanel extends JDialog {
 
 		displayAccountList();
 		setButtonNames();
+
+		if(!this.isActive()) {
+			this.setVisible(true);
+		}
 	}
 }

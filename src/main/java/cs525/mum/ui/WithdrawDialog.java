@@ -12,7 +12,7 @@ public abstract class WithdrawDialog extends javax.swing.JDialog {
 		setTitle("Withdraw");
 		setModal(true);
 		getContentPane().setLayout(null);
-		setSize(900, 834);
+		setSize(1200, 1234);
 		setVisible(false);
 		JLabel1.setText("Account No");
 		getContentPane().add(JLabel1);
